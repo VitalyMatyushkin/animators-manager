@@ -1,14 +1,15 @@
-import { createStore, createEvent } from 'effector';
-import React from 'react';
+import { createEvent, createStore } from 'effector';
 import { useStore } from 'effector-react';
-import logo from './logo.svg';
+import React from 'react';
+import { A } from '@/A';
 import './App.css';
+import logo from './logo.svg';
 
 const addCount = createEvent();
-const $count = createStore<number>(0).on(addCount, (count) => count + 1);
+const $Count = createStore<number>(0).on(addCount, (count) => count + 1);
 
 function App() {
-  const count = useStore($count);
+  const count = useStore($Count);
 
   return (
     <div className="text-center">
@@ -22,10 +23,12 @@ function App() {
             {count}
           </button>
         </p>
+        <A />
         <p>
           Edit
           {' '}
           <code>App.tsx</code>
+          {' '}
           {' '}
           and save to test HMR updates.
         </p>
