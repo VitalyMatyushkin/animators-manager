@@ -7,9 +7,9 @@
     "extends": [
         "airbnb",
         "airbnb-typescript",
-        "plugin:import/typescript",
-        "plugin:effector/recommended", 
-        "plugin:effector/scope"
+        "plugin:effector/recommended",
+        "plugin:effector/scope",
+        "plugin:import/typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -21,9 +21,18 @@
         "project": "./tsconfig.json"
     },
     "plugins": [
-        "effector",
         "react",
+        "effector",
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "import/extensions": "off",
+        "import/prefer-default-export": "off"
+    }
 }
